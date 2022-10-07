@@ -1,13 +1,7 @@
-#reddit client id: 9uSZazoC_zoxPOZwsb2lVw
-#secret: Od8EJ3AEpEHSYbZ4MvVkbc8h_geidA
-
+import config
 import praw
 
-reddit_client_id = "9uSZazoC_zoxPOZwsb2lVw"
-secret = "Od8EJ3AEpEHSYbZ4MvVkbc8h_geidA"
-agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"
-
-reddit = praw.Reddit(client_id = reddit_client_id, client_secret = secret, user_agent = agent)
+reddit = praw.Reddit(client_id = config.reddit_client_id, client_secret = config.secret, user_agent = config.agent)
 
 hot_posts = reddit.subreddit('tinderstories').hot(limit=200)
 # print(hot_posts[0])
@@ -26,7 +20,6 @@ for post in hot_posts:
     total_posts.append(data_set)
 
 print(total_posts[0])
-
 
 
 
