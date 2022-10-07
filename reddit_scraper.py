@@ -1,5 +1,6 @@
 import config
 import praw
+import pandas as pd
 
 reddit = praw.Reddit(client_id = config.reddit_client_id, client_secret = config.secret, user_agent = config.agent)
 
@@ -19,7 +20,11 @@ for post in hot_posts:
     data_set = {"Title":Title,"Score":Score, "Number_Of_Comments":Number_Of_Comments,"Publish_Date":Publish_Date,"Content":Content}
     total_posts.append(data_set)
 
-print(total_posts[0])
+#print(total_posts[0])
+
+df=pd.DataFrame.from_records(total_posts)
+
+df.to_csv('Reddit_HotPosts.csv', encoding='utf-8', index=False)
 
 
 
