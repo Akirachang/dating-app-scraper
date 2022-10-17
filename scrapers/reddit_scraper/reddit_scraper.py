@@ -4,7 +4,7 @@ import pandas as pd
 
 reddit = praw.Reddit(client_id = config.reddit_client_id, client_secret = config.secret, user_agent = config.agent)
 
-hot_posts = reddit.subreddit('tinderstories').hot(limit=200)
+hot_posts = reddit.subreddit('tinderstories').hot(limit=10)
 # print(hot_posts[0])
 total_posts = list()
 
