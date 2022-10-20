@@ -4,7 +4,8 @@ import pandas as pd
 
 reddit = praw.Reddit(client_id = config.reddit_client_id, client_secret = config.secret, user_agent = config.agent)
 
-hot_posts = reddit.subreddit('tinderstories').hot(limit=10)
+
+hot_posts = reddit.subreddit('tinderstories').top("all", limit=1000)
 # print(hot_posts[0])
 total_posts = list()
 
@@ -23,8 +24,3 @@ for post in hot_posts:
 #print(total_posts[0])
 
 df=pd.DataFrame.from_records(total_posts)
-
-df.to_csv('Reddit_HotPosts.csv', encoding='utf-8', index=False)
-
-
-
